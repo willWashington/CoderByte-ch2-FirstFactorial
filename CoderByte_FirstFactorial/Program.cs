@@ -13,23 +13,23 @@ namespace CoderByte_FirstFactorial
             //For example: if num = 4, then your program should return (4 * 3 * 2 * 1) = 24. 
             //For the test cases, the range will be between 1 and 18 and the input will always be an integer. 
 
+            //on first pass of this code, it broke on input 13 because int could not support the result of the factorial of 13
+            //changing all my ints to longs resolved the problem
 
-            //this algorithm works until I hit the factorial of 13
-            //the factorial of 12 is 479001600 - this algorithm works to determine that, but fails once I compute 13
-            //at first, I thought it was because of the limitations of int, so I found System.Numerics and BigInteger
-            //this didn't help at all, it resolved to the same things.
 
-            //why does this fail at 13, other than that number just being cursed?
-
-            Console.WriteLine(FirstFactorial(13));
+            long[] arr = new long[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 };
+            foreach(long num in arr)
+            {
+                Console.WriteLine(FirstFactorial(num));
+            }            
             Console.ReadLine();
         }
 
-        static BigInteger FirstFactorial(int num)
+        static long FirstFactorial(long num)
         {
-            BigInteger result = 0;
-            List<int> nums = new List<int>();
-            int counter = 0;
+            long result = 0;
+            List<long> nums = new List<long>();
+            long counter = 0;
             while (counter < num)
             {
                 nums.Add(num);
